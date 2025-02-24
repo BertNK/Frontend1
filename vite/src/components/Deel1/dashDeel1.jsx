@@ -1,10 +1,12 @@
-import '../css/Global.css';
+import '/src/css/Global.css';
 import './dashDeel1.css';
+import Saldo from './saldo/saldo.jsx';
 
 export default function Deel1() {
 return(
     <div className="deel1Container">
-        <a>heyy</a>
+      <a>hey</a>
+      <Saldo/>
     </div>
   );
 }

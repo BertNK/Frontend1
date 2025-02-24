@@ -1,4 +1,4 @@
-import '../css/Global.css';
+import '/src/css/Global.css';
 import './header.css';
 
 export default function Header() {

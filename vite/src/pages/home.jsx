@@ -1,7 +1,7 @@
 import '../css/Global.css'
 import '../css/Home.css'
-import Header from '../components/header.jsx'
-import Deel1 from '../components/dashDeel1.jsx'
+import Header from '../components/header/header.jsx'
+import Deel1 from '../components/Deel1/dashDeel1.jsx'
 
 function Home() {
   return (
