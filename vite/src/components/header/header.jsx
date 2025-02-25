@@ -5,7 +5,7 @@ export default function Header() {
 return(
   <header>
     <div className="buttoncontainer">
-      <a>hey</a>
+      <div className='homebutton'><a>Home</a></div>
     </div>
   </header>
   );

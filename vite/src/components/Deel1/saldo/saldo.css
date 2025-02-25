@@ -1,5 +1,18 @@
 .saldocontainer{
-    height: 200px;
-    width: 200px;
-    background: red;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.saldoblock{
+    width: 95%;
+    height: 90%;
+    display: flex;
+    background-color: white ;
+    border-radius: 50px;
+}
+h1{
+    background: transparent;
+    margin: 50px;
 }
