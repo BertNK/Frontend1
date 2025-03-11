@@ -15,12 +15,11 @@
     border-radius: 50px;
 }
 
-.MuiChartsReferenceLine-label{
-    color: white;
-}
 /*  */
 h1{
     background: transparent;
     margin: 50px;
     color: white;
 }
+
+/* Saldo chart */
