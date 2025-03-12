@@ -9,7 +9,7 @@ const LineChart = () => {
     datasets: [
       {
         label: 'All coins value($)',
-        data: [500, 2000, 3000, 4000, 34000, 83000],
+        data: [83000, 50000, 3000, 4000, 34000, 83000],
         borderColor: '#ffffff',
         backgroundColor: 'rgba(33, 150, 243, 0.5)',
         borderWidth: 3,

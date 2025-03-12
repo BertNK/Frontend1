@@ -5,14 +5,14 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PieChart = () => {
   const data = {
-    labels: ['Savings', 'Investments', 'Expenses', 'Debt'],
+    labels: ['USD Balance', 'Crypto Balance'],
     datasets: [
       {
-        label: 'Money Distribution',
-        data: [5000, 3000, 2000, 1000], // Example money values
-        backgroundColor: ['#4CAF50', '#2196F3', '#FFC107', '#F44336'],
+        label: 'Wallet',
+        data: [50000, 192000], // Example money values
+        backgroundColor: ['#4CAF50', '#2196F3'],
         borderColor: ['#ffffff'],
-        borderWidth: 2,
+        borderWidth: 2, 
       },
     ],
   };
@@ -20,8 +20,12 @@ const PieChart = () => {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
+    cutout: '50%', // Makes it a ring chart
     plugins: {
       legend: {
+        display: true,
+        position: 'right', // Moves the legend to the right
+        align: 'center', // Aligns legend items in a column
         labels: {
           color: 'white',
           font: {
@@ -47,9 +51,9 @@ const PieChart = () => {
       display: 'flex', 
       justifyContent: 'center', 
       alignItems: 'center',
-      margin: 'auto'
+      margin: 'auto',
     }}>
-      <div style={{ width: '100%', height: '100%' }}>
+      <div style={{ width: '90%', height: '100%' }}>
         <Pie data={data} options={options} />
       </div>
     </div>
