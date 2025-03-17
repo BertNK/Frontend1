@@ -13,7 +13,7 @@ header{
     width: 30%;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: centera;
 }
 .homebutton{
     height: 100%;
