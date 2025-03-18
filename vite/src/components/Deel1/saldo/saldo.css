@@ -4,16 +4,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
 }
 
 .saldoblock{
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50px;
-    background-color: 02001F;
+    background-color: #3c354a;
 }
 
 /*  */

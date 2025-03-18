@@ -20,18 +20,19 @@
   
   .coin-list {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
     margin-top: 20px;
+    width: 100%;
   }
   
   .coin-item {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    width: 60%;
+    width: 45%;
     padding: 10px;
-    margin: 10px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.1);
@@ -45,6 +46,7 @@
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
   }
   
   .buy-button:hover {
@@ -52,5 +54,5 @@
   }
   
   span{
-    background: transparent;
+    background: none;
   }

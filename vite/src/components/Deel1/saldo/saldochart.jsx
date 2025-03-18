@@ -1,5 +1,6 @@
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import './saldochart.css';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -10,9 +11,9 @@ const PieChart = () => {
       {
         label: 'Wallet',
         data: [50000, 192000], // Example money values
-        backgroundColor: ['#4CAF50', '#2196F3'],
+        backgroundColor: ['#4CAF50', '#2196F3'], // Balance colors remain unchanged
         borderColor: ['#ffffff'],
-        borderWidth: 2, 
+        borderWidth: 2,
       },
     ],
   };
@@ -20,7 +21,9 @@ const PieChart = () => {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
-    cutout: '50%', // Makes it a ring chart
+    layout: {
+      padding: 20, // Adds spacing inside the chart
+    },
     plugins: {
       legend: {
         display: true,
@@ -42,6 +45,12 @@ const PieChart = () => {
         },
       },
     },
+    elements: {
+      arc: {
+        borderWidth: 2,
+        spacing: 5, // Adjusts spacing around slices
+      },
+    },
   };
 
   return (
@@ -51,9 +60,20 @@ const PieChart = () => {
       display: 'flex', 
       justifyContent: 'center', 
       alignItems: 'center',
+      background: 'transparent',
       margin: 'auto',
     }}>
-      <div style={{ width: '90%', height: '100%' }}>
+      <div style={{ 
+        width: '90%', 
+        height: '100%', 
+        padding: '20px',
+        background: 'transparent', 
+        borderRadius: '10px',
+        transform: 'scale(1.25)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
         <Pie data={data} options={options} />
       </div>
     </div>

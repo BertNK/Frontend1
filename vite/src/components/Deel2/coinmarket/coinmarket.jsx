@@ -6,11 +6,11 @@ ChartJS.register(LineElement, PointElement, LinearScale, Title, Tooltip, Legend,
 
 const CoinMarket = () => {
   const data = {
-    labels: ['-', '--', 'Crude Oil', 'Doge', 'Ethereum', 'Bitcoin'],
+    labels: ['Crude Oil', 'Doge', 'Ethereum', 'Bitcoin'],
     datasets: [
       {
         label: 'Market Value ($)',
-        data: [83000, 50000, 3000, 4000, 34000, 83000],
+        data: [3000, 4000, 34000, 83000],
         borderColor: '#ffffff',
         backgroundColor: 'rgba(33, 150, 243, 0.3)',
         borderWidth: 3,
