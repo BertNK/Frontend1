@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, PointElement, LinearScale, Title, Tooltip, Legend, CategoryScale } from 'chart.js';
 import './coinmarket.css';
@@ -5,12 +6,47 @@ import './coinmarket.css';
 ChartJS.register(LineElement, PointElement, LinearScale, Title, Tooltip, Legend, CategoryScale);
 
 const CoinMarket = () => {
+  const [prices, setPrices] = useState({ Bitcoin: 0, Ethereum: 0, Doge: 0, Litecoin: 0 });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPrices = async () => {
+      try {
+        const bitcoinResponse = await fetch('https://api.coindesk.com/v1/bpi/currentprice/BTC.json');
+        const bitcoinData = await bitcoinResponse.json();
+        
+        const ethereumResponse = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd');
+        const ethereumData = await ethereumResponse.json();
+
+        const dogeResponse = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_currencies=usd');
+        const dogeData = await dogeResponse.json();
+
+        const litecoinResponse = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=litecoin&vs_currencies=usd');
+        const litecoinData = await litecoinResponse.json();
+
+        setPrices({
+          Bitcoin: bitcoinData.bpi.USD.rate_float || 0,
+          Ethereum: ethereumData.ethereum.usd || 0,
+          Doge: dogeData.dogecoin.usd || 0,
+          Litecoin: litecoinData.litecoin.usd || 0,
+        });
+
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching market data:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchPrices();
+  }, []);
+
   const data = {
-    labels: ['Crude Oil', 'Doge', 'Ethereum', 'Bitcoin'],
+    labels: ['Litecoin', 'Doge', 'Ethereum', 'Bitcoin'],
     datasets: [
       {
         label: 'Market Value ($)',
-        data: [3000, 4000, 34000, 83000],
+        data: [prices.Litecoin, prices.Doge, prices.Ethereum, prices.Bitcoin],
         borderColor: '#ffffff',
         backgroundColor: 'rgba(33, 150, 243, 0.3)',
         borderWidth: 3,
@@ -21,74 +57,26 @@ const CoinMarket = () => {
     ],
   };
 
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        labels: {
-          color: 'white',
-          font: {
-            size: 25,
-          },
-        },
-      },
-      tooltip: {
-        titleFont: {
-          size: 25,
-        },
-        bodyFont: {
-          size: 25,
-        },
-      },
-    },
-    scales: {
-      x: {
-        ticks: {
-          color: 'white',
-          font: {
-            size: 20,
-          },
-        },
-        grid: {
-          color: 'rgba(255, 255, 255, 0.2)',
-        },
-      },
-      y: {
-        ticks: {
-          color: 'white',
-          font: {
-            size: 20,
-          },
-        },
-        grid: {
-          color: 'rgba(255, 255, 255, 0.2)',
-        },
-      },
-    },
-  };
-
-  const coins = [
-    { name: 'Bitcoin', price: '$83,000' },
-    { name: 'Ethereum', price: '$34,000' },
-    { name: 'Doge', price: '$4,000' },
-    { name: 'Crude Oil', price: '$3,000' },
-  ];
-
   return (
     <div className="market-container">
-      <div className="chart-container">
-        <Line data={data} options={options} />
-      </div>
-      <div className="coin-list">
-        {coins.map((coin, index) => (
-          <div key={index} className="coin-item">
-            <span>{coin.name}</span>
-            <span>{coin.price}</span>
-            <button className="buy-button">Buy</button>
+      {loading ? (
+        <p>Loading market data...</p>
+      ) : (
+        <>
+          <div className="chart-container">
+            <Line data={data} />
           </div>
-        ))}
-      </div>
+          <div className="coin-list">
+            {Object.entries(prices).map(([name, price]) => (
+              <div key={name} className="coin-item">
+                <span>{name}</span>
+                <span>${price.toLocaleString()}</span>
+                <button className="buy-button">Buy</button>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };
