@@ -2,7 +2,7 @@
 header{
     height: 5vh;
     width: 100vw;
-    background-color: #261e35;
+    background-color: #ffffff;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -11,22 +11,25 @@ header{
 .buttoncontainer{
     height: 100%;
     width: 30%;
+    background-color: #ffffff;
     display: flex;
     flex-direction: row;
     align-items: centera;
 }
-.homebutton{
+.headerbutton{
     height: 100%;
     width: 20%;
+    background-color: #ffffff;
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: center;
-}
-
-a{
-    font-size: 1vw;
     transition: 0.3s;
     cursor: pointer;
 }
-a:hover{transform: scale(1.2)}
+.headerbutton:hover{background-color: #f2f2f2;}
+
+header a{
+    font-size: 1vw;
+    background-color: transparent;
+}

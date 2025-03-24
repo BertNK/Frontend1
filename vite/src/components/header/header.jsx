@@ -5,7 +5,8 @@ export default function Header() {
 return(
   <header>
     <div className="buttoncontainer">
-      <div className='homebutton'><a>Home</a></div>
+      <div className='headerbutton'><a>Home</a></div>
+      <div className='headerbutton'><a>Comics</a></div>
     </div>
   </header>
   );
