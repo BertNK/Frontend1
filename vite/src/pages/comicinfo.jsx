@@ -1,22 +1,21 @@
 import { useEffect } from "react";
 import "../css/Global.css";
-import "./Home.css";
+import "./Comicinfo.css";
 import Header from "../components/header/header.jsx";
-import ComicList from "../components/comiclist/comiclist.jsx";
 
-function Home() {
+function Comicinfo() {
   useEffect(() => {
-    document.title = "ComicView - Home";
+    document.title = "ComicView - Info";
   }, []);
 
   return (
     <div className="container">
-      <Header />
+      <Header/>
       <div className="block">
-        <ComicList />
+
       </div>
     </div>
   );
 }
 
-export default Home;
+export default Comicinfo;

@@ -26,6 +26,7 @@ header{
     justify-content: center;
     transition: 0.3s;
     cursor: pointer;
+    text-decoration: none;
 }
 .headerbutton:hover{background-color: #f2f2f2;}
 

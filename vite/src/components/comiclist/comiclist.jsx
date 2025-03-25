@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "/src/css/Global.css";
 import "./comiclist.css";
 
@@ -21,28 +22,38 @@ export default function ComicList() {
       .catch((error) => console.error("Error fetching comics:", error));
   }, []);
 
-  // Function to remove HTML tags from description
   const removeHtmlTags = (str) => {
     const doc = new DOMParser().parseFromString(str, 'text/html');
-    return doc.body.textContent || "";
+    return doc.body.textContent || "None";
+  };
+
+  const truncateDescription = (description) => {
+    const cleanedDescription = removeHtmlTags(description || "None");
+    return cleanedDescription.length > 30 ? cleanedDescription.slice(0, 30) + "..." : cleanedDescription;
   };
 
   return (
     <div className="comiclistcontainer">
       <div className="comiclistheader">
-        <h2>New Comics</h2>
-        <button className="seeallbutton">See All</button>
+        <a className="comiclisttitle">New Comics</a>
+        <Link to="/comics" className="seeallbutton">See All</Link>
       </div>
       <div className="comicgrid">
         {comics.map((comic) => (
           <div key={comic.id} className="comiccard">
             <img
-              src={comic.image ? comic.image.medium_url : "https://via.placeholder.com/150"}            
-              alt={comic.description || "Comic Image"}
+              src={comic.image ? comic.image.medium_url : "https://via.placeholder.com/150"}
+              alt={comic.name || "Comic Image"}
+              onClick={() => window.location.href = `/comicinfo/${comic.id}`}
             />
-            <p>{comic.deck || "No title available"}</p>
-            <p>{comic.cover_date}</p>
-            <p>{removeHtmlTags(comic.description) || "No description available"}</p>
+            <p>{comic.deck || "None"}</p>
+            <p>{comic.cover_date || "None"}</p>
+            <p>{truncateDescription(comic.description)}</p>
+            <p>{comic.issue_number || "None"}</p>
+            <p>{comic.name || "None"}</p>
+            <Link to={`/comicinfo/${comic.id}`} className="viewdetailslink">
+              {comic.site_detail_url ? "View Details" : "No Details Available"}
+            </Link>
           </div>
         ))}
       </div>

@@ -1,5 +1,5 @@
-.comiclistcontainer {
-    width: 40vw;
+.comicsblock {
+    width: 96vw;
     height: 87.5vh;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,8 @@
     border-bottom: 2px solid #ddd;
     background-color: #ffffff;
 }
-.comiclisttitle{
+
+.comiclisttitle {
     background-color: none;
     font: bold;
     font-weight: bold;
@@ -34,7 +35,6 @@
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
-    text-decoration: none;
 }
 
 .seeallbutton:hover {
@@ -43,7 +43,7 @@
 
 .comicgrid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 comics per row */
+    grid-template-columns: repeat(8, 1fr); /* 2 comics per row */
     gap: 15px;
     overflow-y: auto;
     max-height: 85vh;
