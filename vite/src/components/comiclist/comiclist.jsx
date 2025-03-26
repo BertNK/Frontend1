@@ -38,20 +38,25 @@ export default function ComicList() {
         <a className="comiclisttitle">New Comics</a>
         <Link to="/comics" className="seeallbutton">See All</Link>
       </div>
-      <div className="comicgrid">
+      <div className="comicgridmainpage">
         {comics.map((comic) => (
           <div key={comic.id} className="comiccard">
             <img
               src={comic.image ? comic.image.medium_url : "https://via.placeholder.com/150"}
               alt={comic.name || "Comic Image"}
-              onClick={() => window.location.href = `/comicinfo/${comic.id}`}
             />
             <p>{comic.deck || "None"}</p>
             <p>{comic.cover_date || "None"}</p>
             <p>{truncateDescription(comic.description)}</p>
             <p>{comic.issue_number || "None"}</p>
             <p>{comic.name || "None"}</p>
-            <Link to={`/comicinfo/${comic.id}`} className="viewdetailslink">
+            <Link 
+              to={{
+                pathname: `/comicinfo/${comic.id}`, 
+                state: { comicData: comic }
+              }} 
+              className="viewdetailslink"
+            >
               {comic.site_detail_url ? "View Details" : "No Details Available"}
             </Link>
           </div>

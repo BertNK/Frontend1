@@ -41,7 +41,7 @@
     background-color: #bfbfbf;
 }
 
-.comicgrid {
+.comicgridmainpage {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 comics per row */
     gap: 15px;
