@@ -25,16 +25,6 @@ function Comics() {
       .catch((error) => console.error("Error fetching comics:", error));
   }, []);
 
-  const removeHtmlTags = (str) => {
-    const doc = new DOMParser().parseFromString(str, 'text/html');
-    return doc.body.textContent || "None";
-  };
-
-  const truncateDescription = (description) => {
-    const cleanedDescription = removeHtmlTags(description || "None");
-    return cleanedDescription.length > 100 ? cleanedDescription.slice(0, 100) + "..." : cleanedDescription;
-  };
-
   return (
     <div className="container">
       <Header />
@@ -48,13 +38,11 @@ function Comics() {
             <div key={comic.id} className="comiccard">
               <img
                 src={comic.image ? comic.image.medium_url : "https://via.placeholder.com/150"}
-                alt={comic.name || "Comic Image"}
               />
-              <p>{comic.deck || "No title available"}</p>
+              <p>{comic.name || comic.volume.name}</p>
               <p>{comic.cover_date || "No cover date available"}</p>
-              <p>{truncateDescription(comic.description)}</p>
               <p>{comic.issue_number || "No issue number available"}</p>
-              <Link to={`/comicinfo/${comic.id}`} className="viewdetailslink">
+              <Link to={`/comicinfo/${comic.id}`} state={{ comic }} className="viewdetailslink">
                 {comic.site_detail_url ? "View Details" : "No Details Available"}
               </Link>
             </div>
