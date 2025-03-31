@@ -35,7 +35,7 @@ export default function ComicList() {
               src={comic.image ? comic.image.medium_url : "https://via.placeholder.com/150"}
               alt={comic.name || "Comic Image"}
             />
-            <p>{comic.name || comic.volume.name}</p>
+            <p>{comic.volume.name || comic.name}</p>
             <p>{comic.cover_date || "None"}</p>
             <Link to={`/comicinfo/${comic.id}`} state={{ comic }} className="viewdetailslink">
               {comic.site_detail_url ? "View Details" : "No Details Available"}

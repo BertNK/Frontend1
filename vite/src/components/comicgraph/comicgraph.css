@@ -1,0 +1,42 @@
+.graphContainer {
+    width: 55vw;
+    height: auto;
+    max-height: 63.5vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .graphTitle {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0.1rem;
+    padding-top: 0.7rem;
+    background: transparent;
+    color: black; 
+  }
+  
+  .chartWrapper {
+    background-color: transparent;
+    padding: 1rem;
+  }
+  
+  .canvas {
+    background-color: transparent;
+  }
+  
+  .graphBox {
+    background: transparent;
+  }
+  
+  /* Title, Tooltip, and Legend Styling */
+  .chartjs-title {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+  }

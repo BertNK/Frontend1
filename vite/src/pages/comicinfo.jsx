@@ -21,15 +21,16 @@ function Comicinfo() {
     <div className="comicinfocontainer">
       <Header />
       <div className="comicinfoblock">
-        <h1 className="comicinfotitle">{comicData.name || comicData.volume.name}</h1>
+        <h1 className="comicinfotitle">{comicData.name}</h1>
+        <a className="comicinfotitle">{comicData.volume.name}</a>
         <img className="comicinfoimage"
           src={comicData.image ? comicData.image.medium_url : "https://via.placeholder.com/150"}
-          alt={comicData.name || "Comic Image"}
+          alt={comicData.name || comicData.volume.name || "Comic Image"}
         />
         <a className="comicinfodescription">{removeHtmlTags(comicData.description)}</a>
         <a className="comicinfoissue">Issue Number: {comicData.issue_number || "N/A"}</a>
+        <a className="comicinfoissue">Issue ID: {comicData.id || comicData.volume.id || "N/A"}</a>
         <a className="comicinfodate">Cover Date: {comicData.cover_date || "N/A"}</a>
-        <p>Site Detail URL: <a href={comicData.site_detail_url} target="_blank" rel="noopener noreferrer">{comicData.site_detail_url || "No URL available"}</a></p>
       </div>
     </div>
   );

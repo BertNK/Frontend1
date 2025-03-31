@@ -20,8 +20,10 @@
 .comicinfotitle{
     background: transparent;
     font-size: 3vw;
-    padding: 10px;
+    padding-left: 10px;
+    padding-bottom: 5px;
 }
+
 .comicinfoimage{
     height: 50vh;
     width: 35vh;
@@ -41,13 +43,15 @@
 .comicinfoissue{
     background: transparent;
     padding-left: 10px;
+    padding-top: 5px;
     font-size: 1.6vw;
     font-weight: bold;
 }
 
 .comicinfodate{
     background: transparent;
-    padding: 10px;
+    padding: 5px;
+    padding-left: 10px;
     font-size: 1.6vw;
     font-weight: bold;
 }

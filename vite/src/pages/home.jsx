@@ -3,6 +3,7 @@ import "../css/Global.css";
 import "./Home.css";
 import Header from "../components/header/header.jsx";
 import ComicList from "../components/comiclist/comiclist.jsx";
+import ComicGraph from "../components/comicgraph/comicgraph.jsx";
 
 function Home() {
   useEffect(() => {
@@ -14,6 +15,8 @@ function Home() {
       <Header />
       <div className="block">
         <ComicList />
+        {/* graph */}
+        <ComicGraph/>
       </div>
     </div>
   );

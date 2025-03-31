@@ -39,7 +39,7 @@ function Comics() {
               <img
                 src={comic.image ? comic.image.medium_url : "https://via.placeholder.com/150"}
               />
-              <p>{comic.name || comic.volume.name}</p>
+              <p>{comic.volume.name || comic.name}</p>
               <p>{comic.cover_date || "No cover date available"}</p>
               <p>{comic.issue_number || "No issue number available"}</p>
               <Link to={`/comicinfo/${comic.id}`} state={{ comic }} className="viewdetailslink">
