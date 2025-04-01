@@ -73,9 +73,9 @@ function ComicGraph() {
                 font: {
                   size: 18,
                   weight: 'bold',
-                  family: 'Arial', // You can customize this further
+                  family: 'Arial',
                 },
-                color: 'black', // Ensure the title text is black
+                color: 'black',
               },
               tooltip: {
                 callbacks: {
@@ -90,11 +90,11 @@ function ComicGraph() {
                 },
                 backgroundColor: 'rgba(0, 0, 0, 0.7)',
                 titleColor: 'white',
-                bodyColor: 'rgba(75, 192, 192, 1)', // Tooltip body text color
+                bodyColor: 'rgba(75, 192, 192, 1)',
               },
               legend: {
                 labels: {
-                  color: 'black', // Make legend text black
+                  color: 'black',
                   font: {
                     size: 14,
                   },
@@ -106,7 +106,7 @@ function ComicGraph() {
                 title: {
                   display: true,
                   text: "Number of Issues",
-                  color: 'black', // Ensure axis title is black
+                  color: 'black',
                   font: {
                     size: 16,
                     weight: 'bold',
@@ -114,7 +114,7 @@ function ComicGraph() {
                 },
                 beginAtZero: true,
                 ticks: {
-                  color: 'black', // Ensure tick labels are black
+                  color: 'black',
                 },
               },
             },
