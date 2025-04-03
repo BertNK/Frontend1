@@ -5,9 +5,11 @@ import cors from 'cors';
 const app = express();
 const PORT = 4000;
 
-// Use CORS middleware
+// use CORS middleware
 app.use(cors());
 
+
+// api call to ComicVine API
 app.get('/api/comics', async (req, res) => {
   const apiUrl = `https://comicvine.gamespot.com/api/issues/?api_key=41bd83b2939bb124fcaa63e90c5d0e88b8c0e49a&format=json&sort=cover_date:desc&limit=50`;
 

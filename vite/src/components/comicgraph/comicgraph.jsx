@@ -4,6 +4,8 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 import "/src/css/Global.css";
 import "./comicgraph.css";
 
+// Dit is de comicgraph die ik van ChartJS heb
+
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function ComicGraph() {
@@ -26,20 +28,17 @@ function ComicGraph() {
       .then((data) => {
         if (data.results) {
           const comicCounts = {};
-
-          // Count occurrences of comics by series
+          // count occurrences of comics by series
           data.results.forEach((comic) => {
             const seriesName = comic.volume?.name || comic.name;
             if (seriesName) {
               comicCounts[seriesName] = (comicCounts[seriesName] || 0) + 1;
             }
           });
-
-          // Prepare chart data
+          // prepare chart data
           const seriesNames = Object.keys(comicCounts);
           const seriesCounts = Object.values(comicCounts);
-
-          // Update chartData with the computed values
+          // update chartData with the computed values
           setChartData({
             labels: seriesNames,
             datasets: [

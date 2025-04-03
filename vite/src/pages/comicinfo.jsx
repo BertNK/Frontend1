@@ -6,7 +6,7 @@ import Header from "../components/header/header.jsx";
 
 function Comicinfo() {
   const location = useLocation();
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate(); // hook voor navigation
   const comicData = location.state?.comic;
   const volumeRef = useRef(null);
   const [lineWidth, setLineWidth] = useState("50%");

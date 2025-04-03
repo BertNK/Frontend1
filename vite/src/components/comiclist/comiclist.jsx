@@ -21,7 +21,8 @@ export default function ComicList() {
       })
       .catch((error) => console.error("Error fetching comics:", error));
   }, []);
-
+  // api fetch ^^
+  // hier ook de comics zelf vv
   return (
     <div className="comiclistcontainer">
       <div className="comiclistheader">

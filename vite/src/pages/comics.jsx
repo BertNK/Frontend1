@@ -24,14 +24,14 @@ function Comics() {
       })
       .catch((error) => console.error("Error fetching comics:", error));
   }, []);
-
+  // api fetch ^^
+  // the comics itself vv
   return (
     <div className="container">
       <Header />
       <div className="comicsblock">
         <div className="comiclistheader">
           <a className="comiclisttitle">Comics</a>
-          <button className="seeallbutton">See All</button>
         </div>
         <div className="comicgrid">
           {comics.map((comic) => (
