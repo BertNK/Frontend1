@@ -36,9 +36,12 @@ function Comics() {
         <div className="comicgrid">
           {comics.map((comic) => (
             <div key={comic.id} className="comiccard">
+              <Link to={`/comicinfo/${comic.id}`} state={{ comic }}>
               <img
                 src={comic.image ? comic.image.medium_url : "https://via.placeholder.com/150"}
+                alt={comic.name || "Comic Image"}
               />
+              </Link>
               <p>{comic.volume.name || comic.name}</p>
               <p>{comic.cover_date || "No cover date available"}</p>
               <p>{comic.issue_number || "No issue number available"}</p>

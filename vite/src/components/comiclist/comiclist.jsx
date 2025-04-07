@@ -32,10 +32,12 @@ export default function ComicList() {
       <div className="comicgridmainpage">
         {comics.map((comic) => (
           <div key={comic.id} className="comiccard">
-            <img
-              src={comic.image ? comic.image.medium_url : "https://via.placeholder.com/150"}
-              alt={comic.name || "Comic Image"}
-            />
+            <Link to={`/comicinfo/${comic.id}`} state={{ comic }}>
+              <img
+                src={comic.image ? comic.image.medium_url : "https://via.placeholder.com/150"}
+                alt={comic.name || "Comic Image"}
+              />
+            </Link>
             <p>{comic.volume.name || comic.name}</p>
             <p>{comic.cover_date || "None"}</p>
             <Link to={`/comicinfo/${comic.id}`} state={{ comic }} className="viewdetailslink">

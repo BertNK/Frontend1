@@ -38,8 +38,13 @@ function Comicinfo() {
           </button>
           <h1 className="comicinfotitle">
             {comicData.name}
-            <hr className="lijntje" style={{ width: lineWidth }} />
-            <span className="volumeName" ref={volumeRef}>{comicData.volume.name}</span>
+            {/* Conditionally render the <hr> element if comicData.name exists */}
+            {comicData.name && (
+              <hr className="lijntje" style={{ width: lineWidth }} />
+            )}
+            <span className="volumeName" ref={volumeRef}>
+              {comicData.volume.name}
+            </span>
           </h1>
           <img
             className="comicinfoimage"
