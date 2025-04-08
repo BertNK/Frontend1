@@ -6,6 +6,13 @@ import Header from "../components/header/header.jsx";
 
 function Comics() {
   const [comics, setComics] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredComics = comics.filter((comic) =>
+    (comic.volume?.name || comic.name || "")
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
 
   useEffect(() => {
     document.title = "ComicView - Comics";
@@ -24,23 +31,29 @@ function Comics() {
       })
       .catch((error) => console.error("Error fetching comics:", error));
   }, []);
-  // api fetch ^^
-  // the comics itself vv
+  
   return (
     <div className="container">
       <Header />
       <div className="comicsblock">
         <div className="comiclistheader">
           <a className="comiclisttitle">Comics</a>
+            <input
+              type="text"
+              placeholder="Search comics..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="comicsearchbar"
+            />
         </div>
         <div className="comicgrid">
-          {comics.map((comic) => (
+          {filteredComics.map((comic) => (
             <div key={comic.id} className="comiccard">
               <Link to={`/comicinfo/${comic.id}`} state={{ comic }}>
-              <img
-                src={comic.image ? comic.image.medium_url : "https://via.placeholder.com/150"}
-                alt={comic.name || "Comic Image"}
-              />
+                <img
+                  src={comic.image ? comic.image.medium_url : "https://via.placeholder.com/150"}
+                  alt={comic.name || "Comic Image"}
+                />
               </Link>
               <p>{comic.volume.name || comic.name}</p>
               <p>{comic.cover_date || "No cover date available"}</p>
