@@ -68,7 +68,7 @@ function ComicGraph() {
             plugins: {
               title: {
                 display: true,
-                text: "Most Published Comics",
+                text: "Most Published Top 50 New Comics",
                 font: {
                   size: 18,
                   weight: 'bold',
